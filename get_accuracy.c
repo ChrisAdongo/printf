@@ -22,18 +22,18 @@ int get_accuracy(const char *format, int *i, va_list list)
 	{
 		if (is_digit(format[curr_i]))
 		{
-		accuracy *= 10;
-		accuracy += format[curr_i] - '0';
+			accuracy *= 10;
+			accuracy += format[curr_i] - '0';
 		}
 		else if
 		(format[curr_i] == '*')
 		{
-		curr_i++;
-		accuracy = va_arg(list, int);
-		break;
+			curr_i++;
+			accuracy = va_arg(list, int);
+			break;
 	}
 	else
-	break;
+		break;
 	}
 
 	*i = curr_i - 1;

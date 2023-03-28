@@ -66,7 +66,7 @@ int print_pointer(va_list types, char buffer[],
 int print_non_printable(va_list types, char buffer[],
 	int flags, int width, int accuracy, int size)
 {
-	int i = 0, offset = 0;
+	int i = 0, offset = 0, count = 0;
 	char *str = va_arg(types, char *);
 
 	UNUSED(flags);
@@ -89,7 +89,11 @@ int print_non_printable(va_list types, char buffer[],
 
 	buffer[i + offset] = '\0';
 
-	return (write(1, buffer, i + offset));
+	/*return (write(1, buffer, i + offset));*/
+
+	count = write(1, buffer, i + offset);
+
+	return (count < accuracy ? count : accuracy);
 }
 
 /************************* PRINT REVERSE *************************/

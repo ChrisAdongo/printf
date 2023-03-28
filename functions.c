@@ -45,7 +45,7 @@ int print_string(va_list types, char buffer[],
 	{
 		str = "(null)";
 		if (accuracy >= 6)
-			str = "      ";
+		str = "      ";
 	}
 
 	while (str[length] != '\0')

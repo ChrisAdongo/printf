@@ -108,7 +108,7 @@ int length, char padd, char extra_c)
 		for (i = 1; i < width - length + 1; i++)
 		buffer[i] = padd;
 		buffer[i] = '\0';
-		if (flags & F_MINUS && padd == ' ')/* Asign extra char toleft*/
+	if (flags & F_MINUS && padd == ' ')/* Asign extra char toleft*/
 	{
 	if (extra_c)
 	buffer[--ind] = extra_c;

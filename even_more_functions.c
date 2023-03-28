@@ -31,7 +31,7 @@ int print_pointer(va_list types, char buffer[],
 
 	num_addrs = (unsigned long)addrs;
 
-	while (num_addrs > 0)
+	while (num_addrs > 0 && length <= accuracy)
 	{
 		buffer[ind--] = map_to[num_addrs % 16];
 		num_addrs /= 16;
@@ -77,7 +77,7 @@ int print_non_printable(va_list types, char buffer[],
 	if (str == NULL)
 		return (write(1, "(null)", 6));
 
-	while (str[i] != '\0')
+	while (str[i] != '\0' && i + offset < accuracy)
 	{
 		if (is_printable(str[i]))
 			buffer[i + offset] = str[i];
